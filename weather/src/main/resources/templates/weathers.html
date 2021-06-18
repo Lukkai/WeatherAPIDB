@@ -5,10 +5,20 @@
 <head>
     <meta charset="UTF-8">
     <title>WeatherStation</title>
+
+    <!-- Start Styles. Move the 'style' tags and everything between them to between the 'head' tags -->
+    <style type="text/css">
+        .myOtherTable { background-color:#FFFFE0;border-collapse:collapse;color:#000;font-size:18px; margin-left: auto;margin-right: auto;}
+        .myOtherTable th { background-color:#BDB76B;color:white;}
+        .myOtherTable td,
+        .myOtherTable th { padding:5px;border:0; }
+        .myOtherTable td { border-bottom:1px dotted #BDB76B; text-align: center;}
+    </style>
+    <!-- End Styles -->
 </head>
 <body style="background-color:papayawhip;">
 
-<h1 style="background-color:greenyellow;">Baza danych stacji pogodowej</h1>
+<h1 style="background-color:greenyellow; text-align: center;">Baza danych stacji pogodowej</h1>
 
 <form th:action="@{/addWeather}" method="post">
     <Label>Podaj miasto: </Label><br>
@@ -16,7 +26,7 @@
     <button>Dodaj!</button>
 
     <h2 style="background-color:aliceblue;">Wyszukane dane: </h2>
-    <table style="width:100%">
+    <table class="myOtherTable">
         <tr>
             <th>City</th>
             <th>ID</th>
