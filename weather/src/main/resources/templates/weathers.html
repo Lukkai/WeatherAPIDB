@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WeatherStation</title>
+</head>
+<body style="background-color:papayawhip;">
+
+<h1 style="background-color:greenyellow;">Baza danych stacji pogodowej</h1>
+
+<form th:action="@{/addWeather}" method="post">
+    <Label>Podaj miasto: </Label><br>
+    <input type="text" th:value="${city}" name="newCity">
+    <button>Dodaj!</button>
+
+    <h2 style="background-color:aliceblue;">Wyszukane dane: </h2>
+    <table style="width:100%">
+        <tr>
+            <th>City</th>
+            <th>ID</th>
+            <th>Temp</th>
+            <th>Weather</th>
+            <th>Wind Speed (meter/sec)</th>
+            <th>Check date</th>
+            <th>Timezone(UTC shift)</th>
+        </tr>
+            <div th:each="weather: ${weathers}">
+        <tr>
+                <td><div th:text="${weather.getName()}"></div></td>
+                <td><div th:text="${weather.getID()}"></div></td>
+                <td> <div th:text="${weather.getTemperature()}"></div></td>
+                <td><div th:text="${weather.getWeatherType()}"></div></td>
+                <td><div th:text="${weather.getWindSpeed()}"></div> </td>
+                <td><div th:text="${weather.getDate()}"></div></td>
+                <td><div th:text="${weather.getTimeZone()}"></div></td>
+        </tr>
+            </div>
+    </table>
+
+
+</form>
+</body>
+</html>
